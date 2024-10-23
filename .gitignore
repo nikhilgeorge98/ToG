@@ -1,0 +1,6 @@
+.vscode/
+*.gz
+*config*
+*.jsonl
+*.pickle
+test/

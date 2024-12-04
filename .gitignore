@@ -4,3 +4,9 @@
 *.jsonl
 *.pickle
 test/
+*virtuoso*/
+ibkh_data/
+*__pycache__*
+*.nt
+*.csv
+*temp*

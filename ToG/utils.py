@@ -103,7 +103,7 @@ def clean_relations_bm25_sent(topn_relations, topn_scores, entity_id, head_relat
     return True, relations
 
 
-def run_llm(prompt, temperature, max_tokens, opeani_api_keys, engine="gpt-3.5-turbo"):
+def run_llm(prompt, temperature, max_tokens, opeani_api_keys, engine="gpt-4o-mini"):
     if "llama" in engine.lower():
         openai.api_key = "EMPTY"
         openai.api_base = "http://localhost:8000/v1"  # your local llama server port
@@ -225,7 +225,11 @@ def prepare_dataset(dataset_name):
     elif dataset_name == 'creak':
         with open('../data/creak.json',encoding='utf-8') as f:
             datas = json.load(f)
-        question_string = 'sentence'
+        question_string = 'sentence'    
+    elif dataset_name == 'pubmed1000':
+        with open('../data/pubmedQA/new_pqal_with_ibkh_cosine.json',encoding='utf-8') as f:
+            datas = json.load(f)
+        question_string = 'question'
     else:
         print("dataset not found, you should pick from {cwq, webqsp, grailqa, simpleqa, qald, webquestions, trex, zeroshotre, creak}.")
         exit(-1)
